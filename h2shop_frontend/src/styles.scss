@@ -1,0 +1,78 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'ag-grid-community/styles/ag-grid.css';
+@import 'ag-grid-community/styles/ag-theme-alpine.css';
+@import "~@ng-select/ng-select/themes/material.theme.css";
+@import "~@ng-select/ng-select/themes/default.theme.css";
+
+
+
+
+// regular style toast
+@import 'ngx-toastr/toastr';
+
+// bootstrap style toast
+// or import a bootstrap 4 alert styled design (SASS ONLY)
+// should be after your bootstrap imports, it uses bs4 variables, mixins, functions
+// @import 'ngx-toastr/toastr-bs4-alert';
+
+// if you'd like to use it without importing all of bootstrap it requires
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/variables';
+@import 'bootstrap/scss/mixins';
+// // bootstrap 4
+// @import 'ngx-toastr/toastr-bs4-alert';
+// // boostrap 5
+@import 'ngx-toastr/toastr-bs5-alert';
+@import 'bootstrap/scss/bootstrap';
+
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.page-loading-class {
+    position: fixed !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    top: 0 !important;
+    z-index: 999999;
+  
+    background: rgba(121, 121, 121, 0.5);
+  
+    .bee-spinner-sc {
+      width: 80px;
+      height: 80px;
+      position: fixed;
+      top: 40%;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 16px;
+      z-index: 999999;
+      // background-image: url(src/assets/media/img/loadingg.gif);
+      background-repeat: no-repeat;
+      background-size: 100%;
+    }
+  }
+
+.ag-tooltip{
+  background-color: #cbd0d3;
+  color:black;
+  padding: 3px;
+  border-radius: 5px;
+}
+.dropdown-fluid {
+  height: 100%;
+
+  .topbar-item {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+}
+.ag-header-cell-resize{
+  display: none;
+}

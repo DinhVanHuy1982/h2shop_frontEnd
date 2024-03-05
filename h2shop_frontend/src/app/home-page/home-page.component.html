@@ -1,0 +1,76 @@
+<p>home-page works!</p>
+<a [routerLink]="['/detail']" routerLinkActive="routerLinkActive" class="nav-link">Active</a>
+<router-outlet></router-outlet>
+
+
+<ag-grid-angular 
+style="width: 100%; height: 100%" 
+class="ag-theme-alpine"
+[rowData]="rowData" 
+[columnDefs]="colDefs" 
+(gridReady)="onGridReady($event)"
+[tooltipShowDelay]="0"
+(gridSizeChanged)="gridSizeChange($event)"
+[overlayNoRowsTemplate]="noRowsTemplate"
+[suppressRowTransform]="true"
+[suppressRowClickSelection]="true"
+>
+</ag-grid-angular>
+
+
+
+  
+
+
+ <div style="width: 400px;">
+    <ng-select [items]="rowData"
+    style="height: 40px; width: 400px !important;"
+    [clearable]="true"
+    [searchable]="true"
+    [multiple]="true"
+    bindLabel="make"
+    bindValue="model"
+    formControlName="position"
+    style="height: 40px;">
+    <ng-template ng-option-tmp let-item="item">
+      <div class="text-truncate" [matTooltip]="item.make" [innerText]="item.make" class="dot3"></div>
+  </ng-template>
+    </ng-select>
+ </div>
+
+
+ <div class="example-container" cdkScrollable>
+    <button mat-raised-button #tooltip="matTooltip"
+            matTooltip="Info about the action"
+            matTooltipHideDelay="100000"
+            aria-label="Button that displays a tooltip that hides when scrolled out of the container"
+            class="example-button" (click)="onpenModal(modal)">
+      Action
+    </button>
+  </div>
+
+
+  <ng-template #modal>
+    <div style="background-color: red; color: black; font-weight: 600;"> Đinh Văn Huy</div>
+  </ng-template>
+
+
+
+  <mat-tab-group style="margin-top: 200px;">
+    <ng-container *ngFor="let tab of asyncTabs | async;  trackTab">
+      <mat-tab>
+        <ng-template mat-tab-label>{{tab.label}}</ng-template>
+        {{tab.content}}
+      </mat-tab>
+    </ng-container>
+  </mat-tab-group>
+  <button (click)="loading()" >click to loading</button>
+
+  <button (click)="openToast()" [matTooltip]="'openToast'">click to open toast</button>
+  <button (click)="testApi($event)" >click to test domain api</button>
+  <!-- <button mat-raised-button (click)="openMenuBottom($event)">Open file</button> -->
+
+
+  <div class="page-loading-class" style="z-index: 999999" *ngIf="hide===true">
+    <div class="bee-spinner-sc" style="color: black;"><mat-spinner [color]="color" style="color: black; width: 30px;"></mat-spinner></div>
+  </div>
