@@ -26,7 +26,7 @@ export class HomePageComponent {
   // rowData = [];
 
   colDefs : ColDef[]= [
-    { headerName: 'Make', field: 'make',minWidth:200, maxWidth:300 , tooltipField: 'make', pinned:'left'},
+    { headerName: this.translate.instant('COMMON.DOWNLOAD'), field: 'make',minWidth:200, maxWidth:300 , tooltipField: 'make', pinned:'left'},
     { headerName: 'Model', field: 'model', minWidth:200,tooltipField:'model' },
     { headerName: 'Price', field: 'price' ,minWidth:200, tooltipField: 'price'},
     { headerName: 'Electric', field: 'electric' ,minWidth:200, tooltipField:'electric',pinned:'right'},
@@ -48,7 +48,7 @@ export class HomePageComponent {
     params.api.sizeColumnsToFit();
 }
 
-  constructor(private dialog: MatDialog, 
+  constructor(private dialog: MatDialog,
     private toast: ToastrService,
     private translate: TranslateService,
     private homapageService: HomePageService
@@ -75,7 +75,7 @@ export class HomePageComponent {
     setTimeout(()=>{
       this.hide=false;
       console.log("OK");
-      
+
     },2000)
   }
   openToast(){

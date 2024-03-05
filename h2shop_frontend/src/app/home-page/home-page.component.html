@@ -3,11 +3,11 @@
 <router-outlet></router-outlet>
 
 
-<ag-grid-angular 
-style="width: 100%; height: 100%" 
+<ag-grid-angular
+style="width: 100%; height: 100%"
 class="ag-theme-alpine"
-[rowData]="rowData" 
-[columnDefs]="colDefs" 
+[rowData]="rowData"
+[columnDefs]="colDefs"
 (gridReady)="onGridReady($event)"
 [tooltipShowDelay]="0"
 (gridSizeChanged)="gridSizeChange($event)"
@@ -19,7 +19,7 @@ class="ag-theme-alpine"
 
 
 
-  
+
 
 
  <div style="width: 400px;">
@@ -59,8 +59,10 @@ class="ag-theme-alpine"
   <mat-tab-group style="margin-top: 200px;">
     <ng-container *ngFor="let tab of asyncTabs | async;  trackTab">
       <mat-tab>
-        <ng-template mat-tab-label>{{tab.label}}</ng-template>
-        {{tab.content}}
+        <ng-container>
+          <ng-template mat-tab-label>{{tab.label}}</ng-template>
+        </ng-container>
+        <app-detail></app-detail>
       </mat-tab>
     </ng-container>
   </mat-tab-group>
