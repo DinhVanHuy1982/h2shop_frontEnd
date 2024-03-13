@@ -16,20 +16,13 @@ const CONNECT_SOCKET_USER: string = browserWindowEnv['CONNECT_SOCKET_SELLER'] ||
 const TIME_RECONNECT_SOCKET: string = browserWindowEnv['TIME_RECONNECT_SOCKET'] || '';
 
 export const environment = {
-  production: false,
-  isMockEnabled: true, // You have to switch this, when your real back-end is done
-  authTokenKey: 'authce9d77b308c149d5992a80073637e4d5',
-  AUTH_SERVER: DOMAIN,
-  DOMAIN_FILE: DOMAIN_FILE,
-  DOMAIN_DELETE_FILE: DOMAIN_DELETE_FILE,
-  DOMAIN_ULEARN: DOMAIN_ULEARN,
-  API_GATEWAY_ENDPOINT: DOMAIN+'/api/',
+  // API_GATEWAY_ENDPOINT: DOMAIN+'/api/',
   URL_SERVER_SOCKET: DOMAIN_SOCKET + '/websocket',
   URL_SERVER_SOCKET_RX: DOMAIN_SOCKET_RX,
   CONNECT_SOCKET_USER: CONNECT_SOCKET_USER,
   URL_IMAGE_LOADING: DOMAIN + '/upload',
   URL_LOGOUT:'logout-mobile.com',
-  // API_GATEWAY_ENDPOINT: 'http://localhost:8080'+'/api/',
+  API_GATEWAY_ENDPOINT: 'http://localhost:8080'+'/api/',
   // SCHOOL_NAME: 'Trường THPT Chuyên Nguyễn Huệ',
   SCHOOL_NAME: 'ໂຮງຮຽນມິດຕະພາບລາວ-ຫວຽດນາມ',
   SCHOOL_CODE: `${SCHOOL_CODE}`,

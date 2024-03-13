@@ -1,30 +1,36 @@
 /* You can add global styles to this file, and also import other style files */
 @import 'ag-grid-community/styles/ag-grid.css';
 @import 'ag-grid-community/styles/ag-theme-alpine.css';
-@import "~@ng-select/ng-select/themes/material.theme.css";
-@import "~@ng-select/ng-select/themes/default.theme.css";
 
 
 
 
 // regular style toast
 @import 'ngx-toastr/toastr';
+/* styles.scss hoặc file SASS chính của ứng dụng */
+@import '@ng-select/ng-select/themes/default.theme.css';
 
-// bootstrap style toast
-// or import a bootstrap 4 alert styled design (SASS ONLY)
-// should be after your bootstrap imports, it uses bs4 variables, mixins, functions
-// @import 'ngx-toastr/toastr-bs4-alert';
 
-// if you'd like to use it without importing all of bootstrap it requires
 @import 'bootstrap/scss/functions';
 @import 'bootstrap/scss/variables';
 @import 'bootstrap/scss/mixins';
-// // bootstrap 4
-// @import 'ngx-toastr/toastr-bs4-alert';
-// // boostrap 5
-@import 'ngx-toastr/toastr-bs5-alert';
 @import 'bootstrap/scss/bootstrap';
+.ng-select .ng-arrow-wrapper{
+  background-color: #f4f6fa;
+  padding: unset !important;
+  margin-right: 5px;
+  border-radius:4px ;
+}
+.ng-select-container{
+  height: 100% !important;
+}
+.ng-select-searchable.ng-select-single .ng-input{
+  top: calc(50% - 9px)!important;
+}
 
+.toast-container > :not(:last-child){
+  margin-bottom: 8px !important;
+}
 
 
 html, body { height: 100%; }
@@ -37,9 +43,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     left: 0 !important;
     top: 0 !important;
     z-index: 999999;
-  
+
     background: rgba(121, 121, 121, 0.5);
-  
+
     .bee-spinner-sc {
       width: 80px;
       height: 80px;
@@ -75,4 +81,12 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 .ag-header-cell-resize{
   display: none;
+}
+:host::ng-deep{
+  .toast-container .ngx-toastr {
+    pointer-events: none !important;
+    position: fixed !important;
+    z-index: 999999 !important;
+    margin-bottom: 12px !important;
+  }
 }

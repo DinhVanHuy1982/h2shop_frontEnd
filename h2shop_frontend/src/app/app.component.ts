@@ -9,7 +9,7 @@ import { TranslationService } from './core/_base/layout/service/translation.serv
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit, OnDestroy{
-  
+
   lang: string | undefined;
   ngOnInit(): void {
     console.log('da vaoooooooooooo-----------')

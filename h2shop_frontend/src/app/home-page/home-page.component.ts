@@ -15,7 +15,7 @@ import { HomePageService } from './service-home-page/home-page.service';
   styleUrls: ['./home-page.component.scss']
 })
 export class HomePageComponent {
-
+  item : any;
   color = "#fff"
   hide = false;
   rowData = [
@@ -76,7 +76,7 @@ export class HomePageComponent {
       this.hide=false;
       console.log("OK");
 
-    },2000)
+    },9000)
   }
   openToast(){
     this.toast.success("Thành công")

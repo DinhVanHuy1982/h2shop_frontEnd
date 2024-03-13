@@ -1,0 +1,87 @@
+  <!-- begin:: Page -->
+  <ng-container *ngIf="selfLayout !== 'blank'; else blankLayout">
+	<!-- begin:: Header Mobile -->
+	<kt-header-mobile></kt-header-mobile>
+	<!-- end:: Header Mobile -->
+
+	<div class="d-flex flex-column flex-root h-100">
+		<!-- begin::Body -->
+<!--		<div [ngClass]="desktop && isChoose?'flex-column-fluid':''" class="d-flex flex-row  page row">-->
+		<div [ngClass]="desktop?'flex-column-fluid':''" class="d-flex flex-row  page row">
+			<!-- begin:: Aside Left -->
+			<ng-container *ngIf="asideSelfDisplay">
+				<kt-aside-left></kt-aside-left>
+			</ng-container>
+
+      <ng-container *ngIf="notifies$ | async as notifies">
+        <ng-container *ngFor="let notify of notifies; let i = index">
+          <kt-alert-popup [hidden]="!notify.show"
+                          [data]="notify"
+                          [index]="(notifies.length - i - 1)"
+                          (closed)="closedNotice($event)"
+          >
+          </kt-alert-popup>
+        </ng-container>
+      </ng-container>
+
+      <ng-container *ngIf="notifiesStudent$ | async as notifies ">
+        <ng-container *ngFor="let notify of notifies; let i = index">
+          <kt-alert-popup [hidden]="!notify.show"
+                          [data]="notify"
+                          [index]="(notifies.length - i - 1)"
+                          (closed)="closedNoticeStudent($event)"
+          >
+          </kt-alert-popup>
+        </ng-container>
+      </ng-container>
+			<!-- end:: Aside Left -->
+
+			<!--begin::Wrapper-->
+			<div class="d-flex flex-column flex-row-fluid wrapper" style="height: 100%;" [ngClass]="enable?'':'paddingLeft0 examTest'" id="kt_wrapper">
+				<div class="bg-ovef"></div>
+				<!-- begin:: Header -->
+
+				<!-- end:: Header -->
+
+				<!-- begin:: Content -->
+				<div class="content d-flex flex-column flex-column-fluid" id="kt_content" [ngClass]="contentClasses">
+					<kt-menu-horizontal></kt-menu-horizontal>
+					<!-- begin:: Content Head -->
+					<!-- <ng-container *ngIf="subheaderDisplay">
+						<kt-subheader></kt-subheader>
+					</ng-container> -->
+					<!-- end:: Content Head -->
+
+					<!-- begin:: Content Body -->
+					<!--begin::Entry-->
+					<div ktContentAnimate class="d-flex flex-column-fluid background-mobile">
+						<!--begin::Container-->
+						<div [ngClass]="padding ? 'padding-top-25' : 'padding-top-0'"
+                 class="mobile-col-custom"  style="padding: 0px; width: 100%; height: auto"
+            >							<router-outlet></router-outlet>
+							<!--end::Container-->
+						</div>
+					</div>
+					<!--end::Entry-->
+					<!-- end:: Content Body -->
+				</div>
+				<!-- end:: Content -->
+
+				<!-- <kt-footer></kt-footer> -->
+			</div>
+			<!--end::Wrapper-->
+		</div>
+		<!-- end:: Body -->
+
+		<!-- <kt-quick-panel></kt-quick-panel> -->
+		<kt-scroll-top></kt-scroll-top>
+<!--		<kt-sticky-toolbar></kt-sticky-toolbar>-->
+	</div>
+</ng-container>
+<!-- end:: Page -->
+
+<ng-template #blankLayout>
+	<div class="d-flex flex-column flex-root">
+		<router-outlet></router-outlet>
+	</div>
+</ng-template>

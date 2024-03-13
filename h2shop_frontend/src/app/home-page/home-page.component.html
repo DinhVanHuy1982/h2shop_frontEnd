@@ -22,7 +22,7 @@ class="ag-theme-alpine"
 
 
 
- <div style="width: 400px;">
+ <div style="width: 400px; margin-top: 50px;">
     <ng-select [items]="rowData"
     style="height: 40px; width: 400px !important;"
     [clearable]="true"
@@ -30,10 +30,10 @@ class="ag-theme-alpine"
     [multiple]="true"
     bindLabel="make"
     bindValue="model"
-    formControlName="position"
-    style="height: 40px;">
+    [(ngModel)]="this.item"
+    [ngModelOptions]="{standalone: true}">
     <ng-template ng-option-tmp let-item="item">
-      <div class="text-truncate" [matTooltip]="item.make" [innerText]="item.make" class="dot3"></div>
+      <div class="text-truncate dot3" [matTooltip]="item.make" [innerText]="item.make" ></div>
   </ng-template>
     </ng-select>
  </div>
@@ -73,6 +73,6 @@ class="ag-theme-alpine"
   <!-- <button mat-raised-button (click)="openMenuBottom($event)">Open file</button> -->
 
 
-  <div class="page-loading-class" style="z-index: 999999" *ngIf="hide===true">
+  <div class="page-loading-class" style="z-index: 999999" *ngIf="hide">
     <div class="bee-spinner-sc" style="color: black;"><mat-spinner [color]="color" style="color: black; width: 30px;"></mat-spinner></div>
   </div>

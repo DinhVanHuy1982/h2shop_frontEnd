@@ -17,7 +17,8 @@ import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NO_ERRORS_SCHEMA } from '@angular/compiler';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormControl, FormControlName, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -33,6 +34,11 @@ import {AsyncPipe} from '@angular/common';
 import { ToastrService,ToastrModule } from 'ngx-toastr';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { LanguageSelectorComponent } from './views/partials/layout/topbar/language-selector/language-selector.component';
+import { MenuHorizontalComponent } from './menu/menu-horizontal/menu-horizontal.component';
+import { AsideLeftComponent } from './menu/aside-left/aside-left.component';
+import { LoginComponent } from './views/pages/auth/login/login.component';
+import { BaseComponent } from './menu/base/base.component';
+
 
 @NgModule({
   declarations: [
@@ -40,7 +46,11 @@ import { LanguageSelectorComponent } from './views/partials/layout/topbar/langua
     HomePageComponent,
     DetailComponent,
     LanguageSelectorComponent,
-    
+    MenuHorizontalComponent,
+    AsideLeftComponent,
+    LoginComponent,
+    BaseComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -61,19 +71,22 @@ import { LanguageSelectorComponent } from './views/partials/layout/topbar/langua
     MatTabsModule,
     MatProgressSpinnerModule,
     ToastrModule.forRoot({
-      timeOut: 4000,
+      timeOut: 40000,
       positionClass: 'toast-bottom-right'
     }),
     MatBottomSheetModule,
     TranslateModule.forRoot(),
     FormsModule,
-    ReactiveFormsModule
-
-  
+    ReactiveFormsModule,
+    MatSidenavModule,
+    HttpClientModule,
+    
   ],
   providers: [
     ToastrService,
-    // MatBottomSheetRef
+    FormControl,
+    FormBuilder,
+    FormControlName
   ],
   bootstrap: [
     AppComponent,

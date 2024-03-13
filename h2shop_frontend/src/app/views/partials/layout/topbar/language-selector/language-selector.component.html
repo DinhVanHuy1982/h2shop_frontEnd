@@ -5,12 +5,11 @@
         bindLabel="name"
         bindValue="lang"
         [(ngModel)]="this.languageSelect"
-        style="height: 40px;"
         (change)="changeLanguage()"
         [ngModelOptions]="{standalone: true}"
         >
         <ng-template ng-option-tmp let-item="item">
-        <div class="text-truncate" [matTooltip]="item.name" [innerText]="item.name" class="dot3"></div>
+        <div class="text-truncate" [matTooltip]="item.name" [innerText]="item.name"></div>
         </ng-template>
     </ng-select>
  </div>
@@ -18,5 +17,4 @@
  <br>
  <br>
  <div><p>{{'SYSTEM.NAME' | translate}}</p></div>
-  
-  
+
